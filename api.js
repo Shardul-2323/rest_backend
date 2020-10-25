@@ -136,9 +136,9 @@ app.post('/placeBookings',(req,res)=>{
     })
 });
 
-MongoClient.connect(mongourl,(err,connection) => {
-    if(err) throw err;
-    db = connection.db('shardul');
+MongoClient.connect(mongourl,{ useUnifiedTopology: true },(err,client) => {
+    if(err) console.log(err)
+    db= client.db('shardul');
     app.listen(port,(err) => {
         if(err) throw err;
         console.log(`Server is running on port ${port}`)
