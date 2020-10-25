@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT||8999;
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://shardul_2323:Shardul@2000@cluster0.9rybt.mongodb.net/shardul?retryWrites=true&w=majority";
+const mongourl = "mongodb+srv://shardul_2323:Shardul@2000@cluster0.9rybt.mongodb.net/shardul?retryWrites=true&w=majority";
 
 var cors = require('cors');
 let db;
@@ -78,7 +78,7 @@ app.get('/hotellist/:trip',(req,res) => {
     }
     db.collection('hotelname').find(query).sort(sort).toArray((err,result) => {
         if(err) throw err;
-        res.status(200).send(result)
+        res.send(result)
     })
 })
 
