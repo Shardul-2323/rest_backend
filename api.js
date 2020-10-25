@@ -101,7 +101,7 @@ app.get('/location',(req,res) => {
 
 //room
 app.get('/rooms',(req,res) => {
-    db.collection('roomtype').find({}).toArray((err,result) => {
+    db.collection('rooms').find({}).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
